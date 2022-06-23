@@ -1,40 +1,34 @@
 
-import React, { Component } from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-  
-export default class NextJsCarousel extends Component {
-    render() {
-        return (
-            <div>
-              <Carousel>
+import styles from '../styles/ProdutosEmDestaque.module.css'
+
+import Link from "next/link";
+import Clara from '../../public/imgs/2012-04-08 13.54.58.jpg'
+export default function ProdutosEmDestaque() {
+            return (
+                          
+                <div className={styles.slider}>
                   <div>
-                      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20211213172224/1.png" alt="image1"/>
-                      <a href="/produtos" className='legend'>Ver Produto</a>
-  
+                 <h1>PRODUTOS EM DESTAQUE</h1>
                   </div>
-                  <div>
-                      <img src="/2.png" alt="image2" />
-                      <p className="legend">Image 2</p>
-  
+              
+                  <div className={styles.slides}>
+                    <div name="slide-1" id="slide-1">                      
+                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
+                    </div>
+                    <div name="slide-1" id="slide-1">                      
+                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
+                    </div>
+                    <div name="slide-1" id="slide-1">                      
+                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
+                    </div>
+                    <div name="slide-1" id="slide-1">                      
+                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
+                    </div>
+                   
                   </div>
-                  <div>
-                      <img src="/3.png" alt="image3"/>
-                      <p className="legend">Image 3</p>
-  
-                  </div>
-                  <div>
-                      <img src="/4.png" alt="image4"/>
-                      <p className="legend">Image 4</p>
-  
-                  </div>
-                  <div>
-                      <img src="/5.png" alt="image5"/>
-                      <p className="legend">Image 5</p>
-  
-                  </div>
-              </Carousel>
-            </div>
-        );
+
+                </div>
+              );
+              
+        
     }
-};
