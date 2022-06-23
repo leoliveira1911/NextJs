@@ -1,0 +1,19 @@
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    font-size: 1.4em;
+    height: 100px;
+ }
+
+.cabecalho a {
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+ .cabecalho a:hover{
+    color: yellow;
+    font-weight: bolder;
+    border: solid yellow ;
+}

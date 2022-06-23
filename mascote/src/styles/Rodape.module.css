@@ -1,0 +1,31 @@
+
+.orcamento {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(32, 172, 236);
+    font-size: 1.4em;
+    height: 100px;
+    
+}
+.contatos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: red;
+    font-size: 1.4em;
+    height: 100px;
+}
+
+.orcamento a {
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+ .orcamento a:hover{
+    color: yellow;
+    font-weight: bolder;
+    border: solid yellow ;
+}
+
+
