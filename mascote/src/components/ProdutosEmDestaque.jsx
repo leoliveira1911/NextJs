@@ -8,8 +8,9 @@ export default function ProdutosEmDestaque() {
                           
                 <div className={styles.slider}>
                   <div>
-                 <h1>PRODUTOS EM DESTAQUE</h1>
+                    
                   </div>
+                 <h1>PRODUTOS EM DESTAQUE</h1>
               
                   <div className={styles.slides}>
                     <div name="slide-1" id="slide-1">                      
