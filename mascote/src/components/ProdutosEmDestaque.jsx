@@ -1,35 +1,63 @@
-
+import React, { useState } from 'react';
+import { SliderData } from './ProdutosEmDestaqueFotos';
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import styles from '../styles/ProdutosEmDestaque.module.css'
+import '../styles/ProdutosEmDestaque.module.css'
 
-import Link from "next/link";
-import Clara from '../../public/imgs/2012-04-08 13.54.58.jpg'
-export default function ProdutosEmDestaque() {
-            return (
-                          
-                <div className={styles.slider}>
-                  <div>
-                    
-                  </div>
-                 <h1>PRODUTOS EM DESTAQUE</h1>
-              
-                  <div className={styles.slides}>
-                    <div name="slide-1" id="slide-1">                      
-                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
-                    </div>
-                    <div name="slide-1" id="slide-1">                      
-                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
-                    </div>
-                    <div name="slide-1" id="slide-1">                      
-                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
-                    </div>
-                    <div name="slide-1" id="slide-1">                      
-                      <a href="/produtos"><img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png' alt="" srcset="" /></a>
-                    </div>
-                   
-                  </div>
 
-                </div>
-              );
-              
-        
+
+const ImageSlider = ({ slides }) => {
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
+
+  const navegar = () => {
+    if(current == 0) {
+      window.location.href = '/produtos'
+    } else if (current == 1) {
+      window.location.href = '/produtos1'
+    } else if (current == 2) {
+      window.location.href = '/produtos2'
+    } else if (current == 3) {
+      window.location.href = '/produtos3'
+    } else if (current == 4) {
+      window.location.href = '/produtos4'
     }
+   
+  }
+
+  setInterval(nextSlide, 4000)
+
+  return (
+    <section className={styles.slider}>
+      <FaArrowAltCircleLeft className={styles.left} onClick={prevSlide} />
+      <FaArrowAltCircleRight className={styles.right} onClick={nextSlide} />
+      {SliderData.map((slide, index) => {
+        return (
+          <div
+            className={ index === current ? styles.active : styles.slide}
+            key={index}
+          >
+            {index === current && (
+              <img src={slide.image} alt='travel image' className={styles.image} onClick={navegar}/>
+            )}
+            
+          </div>
+        );
+      })}
+    </section>
+  );
+};
+
+export default ImageSlider;
