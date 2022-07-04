@@ -1,69 +1,69 @@
 import { useState } from "react"
+import NumeroDisplay from "../../components/NumeroDisplay"
 
 
 export default function Mega() {
-    const [quantidade , setQuantidade] = useState(6)
+    const [quantidade, setQuantidade] = useState(6)
     const [valores, setValores] = useState([])
-    
-    function gerarValores(num ) {
+
+    function gerarValores(num) {
         num = quantidade
         /* valores = [] */
         setValores([])
         let prov = []
-        do{
-            let min = Math.ceil(1);
-            let max = Math.floor(60);
+        do {
+            const min = 1;
+            const max = 60;
             let novoElemento = Math.floor(Math.random() * (max - min)) + min
-            if(!valores.includes(novoElemento)){
+            if (!valores.includes(novoElemento)) {
                 prov.push(novoElemento)
             }
-           
-        }while(num > prov.length)
+        } while (num > prov.length)
         setValores(prov)
-        console.log(valores)
-      
         renderizarNumeros()
         return valores
     }
 
     function renderizarNumeros() {
         /* console.log(valores) */
-        return valores.length>=6 ? valores.map(function(valor, i) {
-            return <span key={i} style={{
-                border:'solid, 1px',
-                padding:'5px',
-                
-            
-                borderRadius:'15px'
-            }}>{valor}   </span>
-        }) : 'A aposta precisa de, pelo menos, 6 números.'
+        return (
+            <div style={{ display: 'flex' }}>
+                {valores.length >= 6 ? valores.map(function (valor, i) {
+                    return <NumeroDisplay key={i} numero={valor}></NumeroDisplay>
+                }) : 'A aposta precisa de, pelo menos, 6 números.'}
+            </div>
+        )
     }
 
-    return(
+    return (
         <div style={{
             display: 'flex',
-            flexDirection:"column"
-            
+            flexDirection: "column",
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+            backgroundColor:'#222',
+            color:'white',
+
         }}>
             <div>
-            <button onClick={() => setQuantidade (quantidade + 1)}>Quantidade de valores +</button>
-            <button onClick={() => setQuantidade (quantidade - 1)}>Quantidade de valores -</button>
-
+                <button onClick={() => setQuantidade(quantidade + 1)}>Quantidade de valores +</button>
+                <button onClick={() => setQuantidade(quantidade - 1)}>Quantidade de valores -</button>
             </div>
             <label> Quantidade de valores = {quantidade}</label>
 
             <div>
-            <button onClick={gerarValores}>Gerar Valores</button>
+                <button onClick={gerarValores}>Gerar Valores</button>
+            </div>
+            <h1>Valores da Mega</h1>
 
-            </div>
-            <div >
-                   <h1>Valores da Mega</h1>               
-                    {renderizarNumeros()}
-                    
-            </div>
-            
-        
+            {renderizarNumeros()}
+
+
         </div>
+
+
+
     )
 
 }
