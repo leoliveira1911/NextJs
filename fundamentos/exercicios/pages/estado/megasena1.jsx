@@ -7,6 +7,7 @@ export default function Mega() {
     const [valores, setValores] = useState([])
 
     function gerarValores(num) {
+        
         num = quantidade
         /* valores = [] */
         setValores([])
@@ -15,10 +16,12 @@ export default function Mega() {
             const min = 1;
             const max = 60;
             let novoElemento = Math.floor(Math.random() * (max - min)) + min
-            if (!valores.includes(novoElemento)) {
+            if (!prov.includes(novoElemento)) {
                 prov.push(novoElemento)
             }
         } while (num > prov.length)
+
+        prov.sort((n1,n2) => n1 - n2) //ordena os valores em ordem crescente.
         setValores(prov)
         renderizarNumeros()
         return valores
