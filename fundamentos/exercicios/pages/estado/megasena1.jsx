@@ -7,7 +7,6 @@ export default function Mega() {
     const [valores, setValores] = useState([])
 
     function gerarValores(num) {
-        
 
         num = quantidade
         /* valores = [] */
