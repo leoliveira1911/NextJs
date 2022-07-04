@@ -8,6 +8,7 @@ export default function Mega() {
 
     function gerarValores(num) {
         
+
         num = quantidade
         /* valores = [] */
         setValores([])
@@ -23,6 +24,7 @@ export default function Mega() {
 
         prov.sort((n1,n2) => n1 - n2) //ordena os valores em ordem crescente.
         setValores(prov)
+        console.log(valores)
         renderizarNumeros()
         return valores
     }
@@ -30,7 +32,7 @@ export default function Mega() {
     function renderizarNumeros() {
         /* console.log(valores) */
         return (
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', flexWrap:'wrap' }}>
                 {valores.length >= 6 ? valores.map(function (valor, i) {
                     return <NumeroDisplay key={i} numero={valor}></NumeroDisplay>
                 }) : 'A aposta precisa de, pelo menos, 6 números.'}
