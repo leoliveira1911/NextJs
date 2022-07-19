@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import Quiz from '../components/Quiz'
 
 
-const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'https://quiz-mu-topaz.vercel.app/api'
 
 export default function Home() {
 
