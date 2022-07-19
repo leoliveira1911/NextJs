@@ -40,4 +40,9 @@ export default class AnswerModel {
         revealed: this.#revealed
         }
     }
+    
+    static fromObject(obj: AnswerModel): AnswerModel {
+        return new AnswerModel(obj.value, obj.correct, obj.revealed)
+    }
+
 }

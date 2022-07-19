@@ -63,4 +63,9 @@ export default class QuestionModel {
         }
     }
 
+    static fromObject(obj: QuestionModel): QuestionModel {
+        const answers = obj.answers.map(answ => AnswerModel.fromObject(answ))
+        return new QuestionModel(obj.id, obj.statement , answers , obj.gotItRight)
+    }
+
 }
