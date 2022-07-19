@@ -1,5 +1,4 @@
-import styles from '../styles/Home.module.css'
-import Question from '../components/Question'
+
 import QuestionModel from '../model/question'
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react'
@@ -38,15 +37,6 @@ export default function Home() {
     questionsIds.length > 0 && loadQuestion(questionsIds[0])
   }, [questionsIds])
 
-  function onResponse(index: number) {
-    setQuestion(question.answerWith(index))
-  }
-
-  function timeOut () {
-    if(!question.answered) {
-      setQuestion(question.answerWith(-1))
-    }
-  }
 
   function answeredQuestion(answeredQuestion: QuestionModel) {
     setQuestion(answeredQuestion)
