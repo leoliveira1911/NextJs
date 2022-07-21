@@ -1,6 +1,8 @@
 import NavBar from './NavBar'
 import TopBar from './TopBar'
 import Content from './Content'
+import useAppData from '../../data/hook/useAppData'
+import RequireAuth from '../auth/RequireAuth'
 
 interface LayoutProps {
     title: string
@@ -9,12 +11,16 @@ interface LayoutProps {
 }
 
 export default function Layout(props: LayoutProps) {
+
+    const ctx = useAppData()
+
     return (
+        <RequireAuth>
         <div className={`
         flex
         h-screen
         w-screen
-              dark 
+        ${ctx.theme} 
         `}>
             <NavBar />
 
@@ -34,5 +40,6 @@ export default function Layout(props: LayoutProps) {
             </div>
 
         </div>
+        </RequireAuth>
     )
 }

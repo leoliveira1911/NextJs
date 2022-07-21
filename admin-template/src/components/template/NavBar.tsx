@@ -1,12 +1,15 @@
 import MenuItem from './MenuItem'
 import { HomeIcon , SettingsIcon, BellIcon, LogoutIcon } from '../Icons'
 import Logo from './Logo'
+import useAuth from '../../data/hook/useAuth'
 
 interface NavBarProps {
 
 }
 
 export default function NavBar(props:NavBarProps) {
+    const auth = useAuth()
+
     return (
         <aside className={`
         flex flex-col
@@ -26,7 +29,7 @@ export default function NavBar(props:NavBarProps) {
                 <MenuItem url='/news' text='News' icon={BellIcon}/>
             </ul>
             <ul className=''>
-                <MenuItem onClick={()=> console.log('logout')} text='Sair' icon={LogoutIcon}
+                <MenuItem onClick={auth.logout} text='Sair' icon={LogoutIcon}
                 className={`
                 text-red-600 dark:text-red-400
                 hover:bg-red-400 hover:text-white dark:hover:text-white
